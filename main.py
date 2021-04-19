@@ -17,7 +17,6 @@ def remove_accents(raw_text):
     raw_text = re.sub("[¡]", "", raw_text)
     raw_text = re.sub("[!]", "", raw_text)
     raw_text = re.sub("[.]", "", raw_text)
-    raw_text = re.sub("[\n]", "", raw_text)
     return raw_text
 
 
@@ -31,14 +30,14 @@ with open("spanishhelper.csv", "r", encoding="UTF-8") as f:
         answers.append(row[0])
         questions.append(row[1])
 
-run = True
-while run:
+while True:
     for index in range(len(questions)):
         user_input = input(questions[index] + ": ")
         if user_input == "stop":
-            run = False
+            break
         else:
             if user_input.lower() == answers[index].lower():
-                print("You go it!")
+                print("You got it!", end="\n\n")
             else:
-                print(f"No, it was {answers[index]}", end="\n\n")
+                print(f"No, it was >> {answers[index]}", end="\n\n")
+        print("*********")
