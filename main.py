@@ -17,6 +17,7 @@ def remove_accents(raw_text):
     raw_text = re.sub("[¡]", "", raw_text)
     raw_text = re.sub("[!]", "", raw_text)
     raw_text = re.sub("[.]", "", raw_text)
+    raw_text = re.sub("[,]", "", raw_text)
     return raw_text
 
 
